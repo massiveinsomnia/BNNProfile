@@ -1,0 +1,415 @@
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body #cdawrap {
+  background: none;
+  top: 50px;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s 1.2s;
+  transition: opacity 0.3s 1.2s;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body #cdawrap a {
+  color: #fff !important;
+}
+
+body .loaded ~ #cdawrap {
+  opacity: 1;
+}
+
+body #cdawrap #cda-remove {
+  top: 20px;
+  right: 25px;
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+}
+
+body #cdawrap:hover #cda-remove {
+  opacity: 1;
+}
+
+/* Initial animation of header elements */
+.loading .ip-logo,
+.loading .ip-loader {
+  opacity: 1;
+  -webkit-animation: animInitialHeader 1s cubic-bezier(0.7, 0, 0.3, 1) both;
+  animation: animInitialHeader 1s cubic-bezier(0.7, 0, 0.3, 1) both;
+}
+
+.loading .ip-loader {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+@-webkit-keyframes animInitialHeader {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 800px, 0);
+  }
+}
+
+@keyframes animInitialHeader {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 800px, 0);
+    transform: translate3d(0, 800px, 0);
+  }
+}
+
+/* Header elements when loading finishes */
+.loaded .ip-logo,
+.loaded .ip-loader {
+  opacity: 1;
+}
+
+.loaded .ip-logo {
+  -webkit-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+  -webkit-animation: animLoadedLogo 1s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+  animation: animLoadedLogo 1s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+}
+
+@-webkit-keyframes animLoadedLogo {
+  to {
+    -webkit-transform: translate3d(0, 100%, 0) translate3d(0, 50px, 0)
+      scale3d(0.65, 0.65, 1);
+  }
+}
+
+@keyframes animLoadedLogo {
+  to {
+    -webkit-transform: translate3d(0, 100%, 0) translate3d(0, 50px, 0)
+      scale3d(0.65, 0.65, 1);
+    transform: translate3d(0, 100%, 0) translate3d(0, 50px, 0)
+      scale3d(0.65, 0.65, 1);
+  }
+}
+
+.loaded .ip-loader {
+  -webkit-animation: animLoadedLoader 0.5s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+  animation: animLoadedLoader 0.5s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+}
+
+@-webkit-keyframes animLoadedLoader {
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0) scale3d(0.3, 0.3, 1);
+  }
+}
+
+@keyframes animLoadedLoader {
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0) scale3d(0.3, 0.3, 1);
+    transform: translate3d(0, -100%, 0) scale3d(0.3, 0.3, 1);
+  }
+}
+
+/* Header animation when loading finishes */
+.loaded .ip-header {
+  -webkit-animation: animLoadedHeader 1s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+  animation: animLoadedHeader 1s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+}
+
+@-webkit-keyframes animLoadedHeader {
+  to {
+    -webkit-transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes animLoadedHeader {
+  to {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@-webkit-keyframes animLoadedContent {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 200px, 0);
+  }
+}
+
+@keyframes animLoadedContent {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 200px, 0);
+    transform: translate3d(0, 200px, 0);
+  }
+}
+
+/* Change layout class for header */
+.layout-switch .ip-header {
+  position: absolute;
+}
+
+/* No JS */
+.no-js .ip-header {
+  position: relative;
+  min-height: 0px;
+}
+
+.no-js .ip-header .ip-logo {
+  margin-top: 20px;
+  height: 180px;
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+}
+
+/* Navbar */
+.cbp-hrmenu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  height: 230%;
+  width: 99%;
+}
+
+.cbp-hrmenu ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.cbp-hrmenu > ul > li {
+  display: inline-block;
+}
+
+.cbp-hropen .cbp-hrsub {
+  display: block;
+  padding-bottom: 3em;
+}
+
+.cbp-hrmenu .cbp-hrsub-inner > div {
+  width: 33%;
+  float: left;
+  padding: 0 10rem 0;
+}
+
+.cbp-hrmenu .cbp-hrsub-inner:before,
+.cbp-hrmenu .cbp-hrsub-inner:after {
+  content: " ";
+  display: table;
+}
+
+.cbp-hrmenu .cbp-hrsub-inner:after {
+  clear: both;
+}
+
+.cbp-hrmenu .cbp-hrsub-inner > div a {
+  line-height: 2em;
+}
+
+/* Slideshow */
+.slideshow-img1 {
+  display: inline-block;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  background-image: url("../img/bg/1.jpg");
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.slideshow-img2 {
+  display: inline-block;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  background-image: url("../img/bg/2.jpg");
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.slideshow-img3 {
+  display: inline-block;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  background-image: url("../img/bg/3.jpg");
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.slideshow-img4 {
+  display: inline-block;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  background-image: url("../img/bg/4.jpg");
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+/* Slideshow container 
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto; 
+}*/
+
+/* Hide the images by default */
+.slideshow {
+  display: none;
+}
+
+/* Next & previous buttons */
+.ssprev,
+.ssnext {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 3rem;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  /* z-index: 99999; */
+}
+
+.ssprev {
+  left: 3rem;
+}
+
+/* Position the "next button" to the right */
+.ssnext {
+  right: 3rem;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.ssprev:hover,
+.ssnext:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* The dots/bullets/indicators 
+.ssdot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  position: relative;
+  top: -50px;
+}
+
+.active,
+.ssdot:hover {
+  background-color: #717171;
+}
+*/
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Main - Scattered Card */
+.content {
+  margin-top: 400px;
+  position: relative;
+  margin-bottom: 20vh;
+}
+
+.content--spacing {
+  margin-bottom: 100vh;
+}
+
+.content__title {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  top: 50%;
+  left: 50%;
+  margin: -50vh 0 0 -50vw;
+  padding: 0 10vw;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-weight: 300;
+  font-size: clamp(1.5rem, 15vw, 6.5rem);
+}
+
+.content__title--top {
+  align-items: start;
+}
+
+.content__title--bottom {
+  align-items: end;
+}
+
+.content__title--left {
+  justify-items: start;
+  text-align: left;
+}
+
+.content__title--right {
+  justify-items: end;
+  text-align: right;
+}
+
+.grid {
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  width: 100%;
+  perspective: var(--perspective);
+}
+
+.grid-wrap {
+  height: var(--grid-height);
+  width: var(--grid-width);
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  gap: var(--grid-gap);
+  transform-style: preserve-3d;
+}
+
+.grid__item {
+  aspect-ratio: var(--grid-item-ratio);
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+}
+
+.grid__item-inner {
+  position: relative;
+  width: calc(1 / var(--grid-inner-scale) * 100%);
+  height: calc(1 / var(--grid-inner-scale) * 100%);
+  background-size: cover;
+  background-position: 50% 50%;
+}

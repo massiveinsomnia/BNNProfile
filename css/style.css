@@ -1,0 +1,159 @@
+:root {
+  --color-primary: #0082d6;
+  --color-secondary: #e30060;
+  --color-bg: whitesmoke;
+  --text-color-dark: #333;
+  --text-color-primary: var(--color-primary);
+  --grid-item-ratio: 1.5;
+  --grid-width: 100%;
+  --grid-height: auto;
+  --grid-gap: 2vw;
+  --grid-columns: 4;
+  --grid-inner-scale: 1;
+}
+
+body {
+  /* background: #333; */
+  color: var(--color-bg);
+  /* font-weight: 400;
+  font-size: 1em;
+  font-family: "Raleway", Arial, sans-serif; */
+  overflow: hidden;
+}
+
+a {
+  color: #f0f0f0;
+  text-decoration: none;
+  outline: none;
+}
+
+a:hover,
+a:focus {
+  color: #fff;
+}
+
+/* Loader background */
+.ip-header {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  min-height: 480px;
+  width: 100%;
+  height: 100%;
+  /* background: #f1f1f1; */
+  background-color: var(--color-bg);
+}
+
+.ip-header .ip-logo {
+  margin: 0;
+}
+
+/* Container loading animation */
+.ip-logo,
+.ip-loader {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  cursor: default;
+  pointer-events: none;
+  /* background-color: blue; */
+}
+
+/* ganti jadi navbar */
+.ip-logo {
+  top: 0;
+  height: 100%;
+  -webkit-transform: translate3d(0, 25%, 0);
+  transform: translate3d(0, 25%, 0);
+  /* background-color: brown; */
+}
+
+/* Loading animation position */
+.ip-loader {
+  bottom: 60%;
+}
+
+/* Loading animation object */
+.ip-header .ip-inner {
+  display: block;
+  margin: 0 auto;
+  /* background-color: blueviolet; */
+}
+
+/* Main logo */
+.ip-header .ip-logo svg {
+  /* min-width: 320px; */
+  min-width: 100px;
+  max-width: 150px;
+  width: 25%;
+  background-image: url("../img/icons/bnn_logo_400x400.png");
+  background-size: contain;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  display: flex;
+  position: relative;
+  bottom: 450px;
+  align-items: center;
+  /* background-color: chartreuse; */
+}
+
+/* .ip-header .ip-logo svg path {
+  fill: #ef6e7e;
+}*/
+
+/* Loader stroke */
+.ip-header .ip-loader svg path {
+  fill: none;
+  stroke-width: 6;
+}
+
+.ip-header .ip-loader svg path.ip-loader-circlebg {
+  stroke: #ddd;
+}
+
+/* Loader circle progress color */
+.ip-header .ip-loader svg path.ip-loader-circle {
+  -webkit-transition: stroke-dashoffset 0.2s;
+  transition: stroke-dashoffset 0.2s;
+  /* stroke: #ef6e7e; */
+  stroke: var(--color-primary);
+}
+
+/* Navbar */
+.cbp-hrmenu > ul > li > a {
+  font-weight: 700;
+  padding: 1em 2em;
+  color: #333;
+  display: inline-block;
+}
+
+.cbp-hrmenu > ul > li > a:hover {
+  color: #47a3da;
+}
+
+.cbp-hrmenu > ul > li.cbp-hropen a,
+.cbp-hrmenu > ul > li.cbp-hropen > a:hover {
+  color: #333;
+}
+
+/* sub-menu */
+.cbp-hrmenu .cbp-hrsub {
+  display: none;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(15px);
+  margin-top: 1.2rem;
+  width: 101%;
+  left: 0;
+  align-content: center;
+  align-items: center;
+}
+
+.cbp-hrsub h4 {
+  color: #000;
+  padding: 2em 0 0.6em;
+  margin: 0;
+  font-size: 160%;
+  font-weight: 300;
+}
